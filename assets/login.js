@@ -24,7 +24,6 @@ $(document).ready(function(){
 
     // register validation
     $('#register-form').submit(function(e) {
-        e.preventDefault();
         var email1 = $('input[name=register-email-1]');
         var email2 = $('input[name=register-email-2]');
         var uname = $('input[name=register-username]');

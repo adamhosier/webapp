@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^$', views.login),
     url(r'^invalid', views.login),
     url(r'^register$', views.register),
+    url(r'^logout$', views.logout),
     
     url(r'^home$', views.home),
    
