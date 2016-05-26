@@ -1,0 +1,74 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script type="text/javascript" src="{% static 'home.js' %}"></script>
+</head>
+<body>
+  <div id="header">
+    <div id="header-content">
+      <h1>g<span>T</span></h1>
+      <a href="logout" class="ui-button-link">log out</a>
+    </div>
+  </div>
+  <div id="page">
+    <div class="ui-box full-width" title="Your Stocks" datasrc="stocks.html">
+      <table id="stock-table">
+        <tr>
+          <th>Stock</th>
+          <th>Value</th>
+          <th>Change</th>
+          <th>Etc</th>
+        </tr>
+        <tr>
+          <td><stock>GOOG</stock></td>
+          <td>715.31</td>
+          <td><span class="sign-colour">-6.57</span></td>
+          <td>...</td>
+        </tr>
+        <tr>
+          <td><stock>TSLA</stock></td>
+          <td>215.21</td>
+          <td><span class="sign-colour">+4.04</span></td>
+          <td>...</td>
+        </tr>
+      </table>
+    </div>
+    <div class="ui-box twothird-width left" title="News feed" datasrc="news.html">
+      <p>News here</p>
+    </div>
+    <div class="ui-box third-width right" title="Featured Brokers" datasrc="brokers.html">
+      <p>Leaderboard? There are all just examples of boxes</p>
+    </div>
+    <div class="ui-box half-width bottom left" title="Compare" datasrc="compare.html">
+      <form id="compare-form">
+        <select name="compare-option-1">
+          <option value="" disabled selected>Security 1</option>
+          <option value="gbp">GBP</option>
+          <option value="usd">USD</option>
+          <option value="gold">GOLD</option>
+          <option value="other">Etc</option>
+        </select>
+        <span>/</span>
+        <select name="compare-option-2">
+          <option value="" disabled selected>Security 2</option>
+          <option value="gbp">GBP</option>
+          <option value="usd">USD</option>
+          <option value="gold">GOLD</option>
+          <option value="other">Etc</option>
+        </select>
+        <input type="submit" name="compare-submit" value="Compare">
+      </form>
+    </div>
+    <div class="ui-box half-width bottom right" title="Metrics" datasrc="metrics.html">
+      <p>Metrics about your stocks</p>
+    </div>
+    <span class="ui-footer-text">© graafTrade 2016</span>
+  </div>
+</body>
+</html>

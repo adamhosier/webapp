@@ -1,0 +1,45 @@
+h1 {
+  font-size: 58px;
+  margin-bottom:8px;
+}
+
+h1 span {
+  color: #005078;
+}
+
+#ui-login-container {
+  margin: 150px auto;
+  width: 364px;
+  text-align: center;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 4px;
+}
+
+input[type=text], input[type=password] {
+  width: 340px;
+  height: 20px;
+  background: #ddd;
+  border:1px #bbb solid;
+}
+
+input[type=submit] {
+  width: 178px;
+  border: 1px #000 solid;
+  background: #005078;
+  color: #eee;
+  display: inline-block;
+  cursor: pointer;
+}
+
+#reset-password {
+  display: block;
+  text-align: right;
+  font-size: 13px;
+}
+
+::-webkit-input-placeholder {
+  font-style: italic;
+}

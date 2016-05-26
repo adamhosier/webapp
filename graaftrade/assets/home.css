@@ -1,0 +1,125 @@
+h1 {
+  font-size:30px;
+  float:left;
+}
+
+h1 span {
+  color:#005078;
+}
+
+h2 {
+  margin:0;
+  font-size:16px;
+  color:#888;
+  font-weight: normal;
+  cursor:pointer;
+}
+
+table {
+  border-collapse:collapse;
+}
+
+th, td {
+  padding:5px;
+}
+
+th {
+  min-width:200px;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #f4f4f4;
+}
+
+tr:nth-child(odd) {
+  background-color: #fefefe;
+}
+
+tr:first-of-type {
+  background:none;
+}
+
+.full-width {
+  width:1168px;
+}
+
+.twothird-width {
+  width:768px;
+}
+
+.half-width {
+  width:569px;
+}
+
+.third-width {
+  width:370px;
+}
+
+.large {
+  width:1108px;
+}
+
+.ui-box {
+  background:#fafafa;
+  border:1px #ddd solid;
+  border-radius:2px;
+  padding:10px;
+  display:inline-block;
+  margin-bottom:8px;
+}
+
+.ui-box form {
+  margin-top:10px;
+}
+
+.ui-box select {
+  padding:5px;
+  border-radius:2px;
+  width:200px;
+}
+
+.ui-box input[type=submit] {
+  padding:5px;
+  width: 153px;
+  border: 1px #000 solid;
+  border-radius:2px;
+  background: #005078;
+  color: #eee;
+  cursor:pointer;
+}
+
+#page {
+  width:1190px;
+  margin:78px auto;
+}
+
+#header {
+  height:70px;
+  width:100%;
+  background:#fafafa;
+  border-bottom:1px #ddd solid;
+  position:fixed;
+  top:0;
+}
+
+#header-content {
+  width:1190px;
+  height:70px;
+  margin:0 auto;
+}
+
+#header-content a {
+  float:right;
+  margin:15px 0 0 0;
+}
+
+#stock-table {
+  margin:5px auto;
+  width:100%;
+}
+
+#overlay-box {
+  display:block;
+  margin:50px auto;
+}

@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script type="text/javascript" src="{% static 'login.js' %}"></script>
+</head>
+<body>
+<div id="ui-login-container">
+  <h1>graff<span>Trade</span></h1>
+  <!-- TODO Error messages -->
+  <form method="post" action="home.html" id="register-form">
+    <input type="text" title="email1" name="register-email-1" placeholder="email address">
+    <input type="text" title="email2" name="register-email-2" placeholder="confirm email">
+    <input type="text" title="uname" name="register-username" placeholder="choose username">
+    <input type="password" title="pword1" name="register-password-1" placeholder="choose password">
+    <input type="password" title="pword2" name="register-password-2" placeholder="confirm password">
+    <input type="submit" title="register-submit" value="sign up">
+  </form>
+  <hr>
+  <span class="ui-footer-text">© graffTrade 2016</span>
+</div>
+</body>
+</html>
