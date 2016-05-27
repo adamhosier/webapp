@@ -40,8 +40,6 @@ def login(request):
     passwordSaltBytes = passwordSalt.encode('utf-8')
     hashedPasswordUser = hashlib.sha256(passwordSaltBytes).hexdigest()
     hashedPasswordTable = entry.password
-    print(hashedPasswordTable)
-    print(saltVal)
     
     # SELECT * FROM user WHERE username=loginUser AND password=loginPass
     # success = len(models.User.objects.filter(username=loginUser, password=loginPass)) == 1
@@ -74,8 +72,6 @@ def register(request):
       passwordSalt = registerPassword1 + str(saltVal)
       passwordSaltBytes = passwordSalt.encode('utf-8')
       hashedPassword = hashlib.sha256(passwordSaltBytes).hexdigest()
-      print(hashedPassword)
-      print(saltVal)
       # save the username, encrypted password and salt value tuple to table
       user = models.User(username=registerUser, password=hashedPassword, email=registerEmail1, salt=saltVal)
       user.save()
