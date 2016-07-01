@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'graaftrade.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'users',
+        'NAME': 'graaftrade',
 	'USER': 'dan',
 	'PASSWORD': 'password',
 	'HOST': 'localhost',

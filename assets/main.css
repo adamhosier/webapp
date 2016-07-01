@@ -8,14 +8,28 @@ input {
   border-radius: 1px;
 }
 
+.search, .ui-editable-stock, .ui-editable-field {
+  padding:2px;
+  border:1px #eee solid;
+  outline:none;
+}
+
 a {
   text-decoration: none;
 }
 
 hr {
-  border-top: 1px #ccc solid;
-  border-bottom: none;
+  border-top:1px #ddd solid;
+  border-bottom:none;
+  border-left:none;
+  border-right:none;
   margin-bottom: 0;
+}
+
+.ui-info-text {
+  font-size:12px;
+  margin:5px;
+  color:#222;
 }
 
 .ui-button-link {
@@ -43,9 +57,10 @@ hr {
   text-align: left;
 }
 
-.ui-stock-link {
+.ui-stock-link, .ui-broker-link {
   color:#005078;
   font-weight:bold;
+  cursor:pointer;
 }
 
 .red-text {
@@ -57,7 +72,7 @@ hr {
 }
 
 .blur {
-  -webkit-filter:blur(5px);
+  -webkit-filter:blur(3px);
   animation-name:blur-in;
   animation-duration:100ms;
 }
@@ -68,27 +83,38 @@ hr {
   animation-duration:100ms;
 }
 
-.left {  }
+.editable {
+  cursor:pointer;
+}
+
+.left {
+  float:left;
+}
 
 .right {
   margin-left:4px;
+  float:right;
 }
 
 .bottom {
   margin-bottom:0px!important;
 }
 
+.pointer {
+  cursor:pointer;
+}
+
 @keyframes blur-in {
   from {
     -webkit-filter: blur(0px);
   } to {
-    -webkit-filter:blur(5px);
+    -webkit-filter:blur(3px);
   }
 }
 
 @keyframes blur-out {
   from {
-    -webkit-filter: blur(5px);
+    -webkit-filter: blur(3px);
   } to {
     -webkit-filter:blur(0px);
   }
@@ -97,10 +123,49 @@ hr {
 #content {
   width:100%;
   position:absolute;
+  padding-bottom:500px;
 }
 
 #overlay {
   width:100%;
   height:100%;
+  position:fixed;
+  background:rgba(0,0,0,0.125);
+}
+
+.search-box {
   position:absolute;
+  border:1px #eee solid;
+  border-top:none;
+  background:white;
+  display:none;
+  z-index:1000;
+  box-shadow:0 0 2px;
+}
+
+.search-box span {
+  display:block;
+  padding:5px 10px;
+  font-size:14px;
+  font-weight:bold;
+  color:#005078;
+  cursor:pointer;
+}
+
+.search-box .stock-name {
+  font-size:12px;
+  text-overflow:ellipsis;
+  left:70px;
+  margin:1px 0 0 0;
+  position:absolute;
+  display:inline-block;
+  overflow:hidden;
+  white-space:nowrap;
+  width:95px;
+  font-weight:normal;
+  color:#666;
+}
+
+.search-box span:nth-child(even) {
+  background-color:#f4f4f4;
 }

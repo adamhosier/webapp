@@ -1,10 +1,12 @@
 h1 {
   font-size: 58px;
   margin-bottom:8px;
+  cursor:pointer;
 }
 
 h1 span {
-  color: #005078;
+  color:#005078;
+  cursor:pointer;
 }
 
 #ui-login-container {

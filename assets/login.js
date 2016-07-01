@@ -2,8 +2,9 @@ $(document).ready(function(){
 
     // check for invalid attempt
     if(window.location.href.indexOf("invalid") > -1) {
-        $('input[name=login-password]').css('border-color', '#d00');
+        $('input[type=text], input[type=password]').css('border-color', '#d00');
     }
+
     // validate form submission
     $('#login-form').submit(function() {
         var uname = $('input[name=login-username]');
@@ -20,6 +21,11 @@ $(document).ready(function(){
             valid = false;
         }
         return valid;
+    });
+
+    // home button
+    $('h1').click(function() {
+      window.location = '/';
     });
 
     // register validation

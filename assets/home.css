@@ -1,18 +1,43 @@
-h1 {
+h1 { 
+  margin-top:16px;
   font-size:30px;
   float:left;
-}
-
-h1 span {
-  color:#005078;
+  color:white;
 }
 
 h2 {
+  margin:10px;
+  font-size:13px;
+  color:#999;
+}
+
+a.ui-news-link, a.stock-news-link {
   margin:0;
-  font-size:16px;
-  color:#888;
-  font-weight: normal;
-  cursor:pointer;
+  font-size:14px;
+  font-weight:bold;
+  display:block;
+  color:#058;
+}
+
+.stock-news-link {
+  display:inline-block!important;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  width:235px;
+  font-size:13px!important;
+}
+
+.stock-news-link {
+  padding:8px;
+}
+
+#stock-news div {
+  background:#fefefe;
+}
+
+#stock-news div:nth-of-type(odd) {
+  background:#f4f4f4;
 }
 
 table {
@@ -24,8 +49,22 @@ th, td {
 }
 
 th {
-  min-width:200px;
-  text-align: left;
+  text-align:left;
+  font-size:13px;
+  color:#777;
+}
+
+#search-bar {
+  float:left;
+  margin:17px;
+}
+
+#stock-table th {
+  min-width:150px;
+}
+
+#broker-table th {
+  min-width:100px;
 }
 
 tr:nth-child(even) {
@@ -41,32 +80,42 @@ tr:first-of-type {
 }
 
 .full-width {
-  width:1168px;
+  width:1188px;
 }
 
 .twothird-width {
-  width:768px;
+  width:788px;
 }
 
 .half-width {
-  width:569px;
+  width:589px;
 }
 
 .third-width {
-  width:370px;
+  width:390px;
 }
 
 .large {
-  width:1108px;
+  width:1128px;
 }
 
 .ui-box {
-  background:#fafafa;
-  border:1px #ddd solid;
-  border-radius:2px;
-  padding:10px;
+  background:#f8f8f8;
+  border-top:3px rgba(0, 50, 80, 0.25) solid;
   display:inline-block;
   margin-bottom:8px;
+}
+
+.box-content {
+  border-top:1px #ddd solid;
+  padding:5px;
+}
+
+.box-content:after {
+  content:" ";
+  display:block;
+  height:0;
+  clear:both;
 }
 
 .ui-box form {
@@ -89,6 +138,92 @@ tr:first-of-type {
   cursor:pointer;
 }
 
+.gold {
+  color:#bb9900;
+  font-weight:bold;
+}
+
+.ui-icon {
+  opacity:0.5;
+  display:inline-block!important;
+  vertical-align:middle;
+  margin-right:5px;
+  cursor:pointer;
+  padding:0!important;
+}
+
+.ui-editable-stock {
+  padding:2px;
+  width:100px;
+}
+
+.ui-editable-field {
+  padding:3px;
+}
+
+.stock-row-overlay {
+  position:absolute;
+  z-index:100;
+}
+
+.ui-news-box {
+  border-bottom:1px #eee solid;
+  height:75px;
+  margin:2px 0;
+}
+
+.ui-news-overview {
+  display:inline-block;
+  padding:10px;
+  height:55px;
+  width:425px;
+}
+
+.ui-news-time {
+  width:60px;
+  height:75px;
+  display:inline-block;
+  color:#48A;
+  font-size:12px;
+  font-weight:bold;
+  line-height:75px; 
+  float:right;
+}
+
+.stock-news-time {
+  display:inline-block;
+  color:#48A;
+  font-size:12px;
+  font-weight:bold;
+  float:right;
+  margin:11px 0 0 0;
+  width:55px;
+  overflow:hidden;
+}
+
+.ui-news-preview {
+  height:40px;
+  color:#567;
+  font-size:12px;
+  overflow:hidden;
+  margin:0;
+  float:left;
+  display:inline-block;
+  -webkit-line-clamp:3;
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+}
+
+.ui-news-image {
+  width:70px;
+  height:70px;
+  background-position:50% 50%;
+  background-size:70px 50px;
+  border-radius:1000px;
+  display:inline-block;
+  float:left;
+}
+
 #page {
   width:1190px;
   margin:78px auto;
@@ -97,16 +232,20 @@ tr:first-of-type {
 #header {
   height:70px;
   width:100%;
-  background:#fafafa;
-  border-bottom:1px #ddd solid;
+  background:rgb(65,85,105);
   position:fixed;
+  text-align:right;
   top:0;
+  z-index:1000;
+}
+
+#header-content, #footer-content {
+  width:1190px;
+  margin:0 auto;
 }
 
 #header-content {
-  width:1190px;
   height:70px;
-  margin:0 auto;
 }
 
 #header-content a {
@@ -114,12 +253,236 @@ tr:first-of-type {
   margin:15px 0 0 0;
 }
 
+#header-content #info {
+  float:right;
+  display:inline-block;
+  margin-top:27px;
+  color:white;
+  font-weight:bold;
+}
+
+#settings-button {
+  float:right;
+  background:url('gear.png');
+  width:40px;
+  height:40px;
+  transform:scale(0.75);
+  margin:-11px -6px 0 10px;
+}
+
 #stock-table {
   margin:5px auto;
+  width:100%;
+}
+
+#broker-table {
+  width:100%;
+}
+
+#watch-table {
   width:100%;
 }
 
 #overlay-box {
   display:block;
   margin:50px auto;
+}
+
+#compare1-search, #compare2-search {
+  padding:6px; 
+  width:191px;
+}
+
+#graph-body {
+  font: 10px sans-serif;
+  text-align:center;
+  float:left;
+  display:inline-block;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+path.candle {
+  stroke: #000000;
+}
+
+path.candle.body {
+  stroke-width: 0;
+}
+
+path.candle.up {
+  fill: #00AA00;
+  stroke: #00AA00;
+}
+
+path.candle.down {
+  fill: #FF0000;
+  stroke: #FF0000;
+}
+
+#broker-overview {
+  margin:10px;
+  width:250px;
+  display:inline-block;
+  text-align:center;
+}
+
+.ui-profile-picture {
+  width:250px;
+  height:250px;
+  border-radius:500px; 
+  background-position:50% 50%;
+  background-size:320px 320px;
+}
+
+.broker-name {
+  display:inline-block;
+  font-weight:bold;
+  margin-top:5px;
+  color:#046;
+}
+
+#broker-details {
+  margin-left:10px;
+  display:inline-block;
+  vertical-align:top;
+}
+
+#broker-details td {
+  min-width:200px;
+}
+
+#broker-details td:first-of-type{ 
+  font-weight:bold;
+}
+
+#broker-details tr {
+  background:none;
+  height:30px;
+}
+
+#broker-details table {
+  margin-top:10px;
+}
+
+.ui-chat-link {
+  width:400px;
+  display:block;
+  text-align:center;   
+  margin-top:30px;
+  font-size:18px;
+  font-weight:bold;
+  color:#058;
+  cursor:pointer;
+}
+
+#footer {
+  width:100%;
+  height:30px;
+  position:fixed;
+  bottom:0;
+  background:rgb(65,85,105);
+}
+
+.footer-chat {
+  width:200px;
+  height:20px;
+  padding:5px;
+  text-align:center;
+  margin-left:5px;
+  color:white;
+  background:rgb(80,100,120);
+  float:right;
+  cursor:pointer;
+}
+
+#global-search {
+  width:200px; 
+  padding:10px;
+  border-radius:3px;
+}
+
+.chat-box {
+  position:absolute; 
+  width:200px;
+  height:250px;
+  padding:5px;
+  background:#f4f4f4;
+  border:1px rgba(0,50,80,0.25) solid;
+  border-top-left-radius:2px;
+  border-top-right-radius:2px;
+  border-bottom:none;
+  display:none;
+  overflow:hidden;
+}
+
+.chat-box ul {
+  margin:0;
+  padding:5px 25px 0 0;
+  list-style-type:none;
+  height:225px;
+  width:100%;
+  overflow-y:scroll;
+  overflow-x:hidden;
+}
+
+.chat-box ul li {
+  margin-bottom:2px;
+}
+
+.chat-box ul li span {
+  font-size:13px;
+  padding:5px;
+  background:#fff;
+  border:1px #ddd solid;
+  border-radius:2px;
+  display:inline-block;
+  max-width:80%;
+}
+
+.chat-box ul li.user-chat {
+  text-align:right;
+  margin-right:-2px;
+}
+
+.chat-box ul li.partner-chat span{
+  background:rgba(0,50,80,0.25);
+}
+
+.chat-input {
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:202px;
+  border:none;
+  outline:none;
+  padding:4px;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+#comparison {
+  text-align:center;
+  font-size:12px;
+}
+
+#stock-news {
+  float:right;
+  display:inline-block;
+  width:310px;
 }
