@@ -1,0 +1,8 @@
+<div class="chat-box" id="chat-box-{{ id }}">
+  <ul>
+  {% for d in data %}
+    <li class="{% if d.from_partner %}partner-chat{% else %}user-chat{% endif%}"><span>{{ d.content }}</span></li>
+  {% endfor %}  
+  </ul>  
+  <input class="chat-input" type="text" placeholder="type a message">
+</div>

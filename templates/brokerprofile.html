@@ -1,0 +1,19 @@
+<div style="overflow:hidden;display:table;margin:0 auto">
+  <div id="broker-overview">
+    <div style="background-image:url(assets/profile.png)" class="ui-profile-picture"></div>
+    <span class="broker-name" name="firstname" {% if broker %} editable {% endif %}>{{ firstname }}</span> <span class="broker-name" name="lastname" {% if broker %} editable {% endif %}>{{ lastname }}</span>
+  </div>
+  <div id="broker-details">
+    <table>
+      <tr><td>Website</td><td name="website" {% if broker %} editable {% endif %}>{{ website }}</td></tr>
+      <tr><td>Email Address</td><td name="email" {% if broker %} editable {% endif %}>{{ email }}</td></tr>
+      <tr><td>Account Created</td><td>{{ creation_date }}</td></tr>
+      <tr><td>Last Active</td><td>{{ last_active }}</td></tr>
+      <tr><td>Trusted by</td><td>{{ trusted_by }} people</td></tr>
+      <tr><td>Blocked by</td><td>{{ blocked_by }} people</td></tr>
+      <tr><td>FAQs</td><td name="faq" {% if broker %} editable {% endif %}>{{ faqs }}</td></tr>
+    </table>
+    {% if not broker %}<a class="ui-chat-link" name="{{ id }}">Chat Now</a>{% endif %}
+  </div>
+</div>
+<script> updateBrokerChatLinks(); </script>

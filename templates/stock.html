@@ -1,0 +1,11 @@
+<style>
+</style>
+<div id="graph-body"></div>
+<div id="stock-news">
+  {% for o in stock_news %}
+  <div><a href="{{ o.link }}" class="stock-news-link">{{ o.title }}</a><span class="stock-news-time">{{ o.published }}</span></div>
+  {% endfor %}
+</div>
+<script> 
+loadGraph('{{ ticker }}'); 
+</script>

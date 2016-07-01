@@ -1,0 +1,117 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'broker.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://techanjs.org/techan.min.js"></script>
+  <script src="../assets/compare.js"></script>
+  <script type="text/javascript" src="{% static 'home.js' %}"></script>
+  <script type="text/javascript" src="{% static 'broker.js' %}"></script>
+  <script type="text/javascript" src="{% static 'graph.js' %}"></script>
+</head>
+<body>
+  <div id="header">
+    <div id="header-content">
+      <h1>gT</h1> 
+      <span id="search-bar">
+        <input class="search" name="global" id="global-search" type="text" placeholder="search">
+      </span>
+      <span id="info">
+        {{ username }} - <span id="money-total" class="money">£{{ total_value }}</span> 
+        <span class="ui-icon ui-icon-gear" id="settings-button">
+      </span>
+    </div>
+  </div>
+  <div id="page">
+    <div class="ui-box full-width" title="Your Stocks">
+      {% if user_stock_list %}
+      <table id="stock-table">
+        <tr>
+          <th>stock ticker</th>
+          <th>price</th>
+          <th>change</th>
+          <th>quantity</th>
+          <th>value</th>
+          <th>actions</th>
+        </tr>
+        {% for o in user_stock_list %}
+        <tr id="row-{{ o.ticker }}">
+          <td><stock>{{ o.ticker }}</stock></td>
+          <td>£{{ o.price }}</td>
+          <td><span class="sign-colour">{{ o.change }}</span></td>
+          <td><span class="editable" name="{{ o.ticker }}">{{ o.amount }}</span></td>
+          <td><span class="money">£{{ o.value }}</span></td>
+          <td><span class="ui-icon ui-icon-star" onclick="window.location='stock/move/{{ o.ticker }}'"></span>
+              <span class="ui-icon ui-icon-closethick" onclick="window.location='stock/remove/{{ o.ticker }}'"></span></td>
+        </tr>
+        {% endfor %}
+      </table>
+      {% else %}
+      <p class="ui-info-text">You have no investments yet!</p>
+      {% endif %}
+    </div>
+    <div class="ui-box full-width" title="Your Profile">
+      {{ profile }}
+    </div>
+    <div class="ui-box half-width left" title="News feed" datasrc="home/news">
+      {% for o in news %}
+      <div class="ui-news-box">
+        <div style="background-image:url({{ o.image }})" class="ui-news-image odd"></div>
+        <div class="ui-news-overview">
+          <a class="ui-news-link" href="{{ o.link }}">{{ o.title }}</a>
+          <p class="ui-news-preview">{{ o.summary }}</p>
+        </div>
+        <div class="ui-news-time odd">{{ o.published }}</div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="ui-box half-width right" title="Watch List">
+      {% if user_watch_list %}
+      <table id="watch-table">
+        <tr>
+          <th>Stock Ticker</th>
+          <th>Price</th>
+          <th>Change</th>
+          <th>Actions</th>
+        </tr>
+        {% for o in user_watch_list %}
+        <tr>
+          <td><stock>{{ o.ticker }}</stock></td>
+          <td>£{{ o.price }}</td>
+          <td><span class="sign-colour">{{ o.change }}</span></td>
+          <td><span class="ui-icon ui-icon-plusthick" onclick="window.location='watch/move/{{ o.ticker }}'"></span>
+              <span class="ui-icon ui-icon-closethick" onclick="window.location='watch/remove/{{ o.ticker }}'"></span></td>
+        </tr>
+        {% endfor %}
+      </table>
+      {% else %}
+      <p class="ui-info-text">You have nothing on your watch list yet!</p>
+      {% endif %}
+    </div>
+    <div class="ui-box half-width bottom right" title="Compare">
+      <form id="compare-form">
+        <p>Compare the prices of securities over time.</p>
+        <input class="search" name="compare1" id="compare1-search" type="text" placeholder="stock 1" autocomplete="off">
+        <span>/</span>
+        <input class="search" name="compare2" id="compare2-search" type="text" placeholder="stock 2" autocomplete="off">
+        <input type="submit" name="compare-submit" value="Compare">
+      </form>
+    </div>
+  </div>
+  <div id="footer">
+    <div id="footer-content">
+    {% for o in open_chats %}
+    <div class="footer-chat" id="chat-bar-{{ o.id }}">{{ o.name }}</div>
+    {{ o.chat_box }}
+    {% endfor %}
+    </div>
+  </div>
+</body>
+</html>
